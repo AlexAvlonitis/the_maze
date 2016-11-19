@@ -1,5 +1,4 @@
-require 'maze_constants'
-require 'pry'
+require_relative 'maze_constants'
 
 class MazeLoader
 
@@ -9,12 +8,13 @@ class MazeLoader
     check_maze_validity
   end
 
-  def maze
-    read_and_return_file
+  def maze_array
+    return_maze_file_array
   end
 
   private
-  attr_reader :maze_file, :path #encapsulated the instance variables to be accessed by their methods
+  #encapsulated the instance variables to be accessed by their methods
+  attr_reader :maze_file, :path
 
   def check_maze_validity
     check_file_presence
@@ -31,10 +31,8 @@ class MazeLoader
     raise error unless MazeConstants::MAZE_EXTENSION_REGEX.match(maze_file)
   end
 
-  def read_and_return_file
-    file = File.open(path + maze_file, "r")
-    data = file.read
-    file.close
-    data
+  def return_maze_file_array
+    # Split each letter from the file with the regex below and create a 2 dimensional array
+    File.foreach(path + maze_file).map { |line| line.scan(/\_|X|G|S/) }
   end
 end
