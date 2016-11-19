@@ -12,11 +12,12 @@ class MazeSolver
 
   def solve
     if algorithm.solve_maze
-      puts "solved"
-      p algorithm.position.container
+      puts "Solved!"
+      puts "Path followed:"
+      p algorithm.correct_path.show
     else
       # if the maze doesn't have a goal
-      puts "unsolvable"
+      puts "Unsolvable..."
     end
   end
 

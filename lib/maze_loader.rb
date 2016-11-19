@@ -13,7 +13,7 @@ class MazeLoader
   end
 
   private
-  #encapsulated the instance variables to be accessed by their methods
+  # Encapsulated the instance variables to be accessed by their methods
   attr_reader :maze_file, :path
 
   def check_maze_validity
@@ -32,7 +32,8 @@ class MazeLoader
   end
 
   def return_maze_file_array
-    # Split each letter from the file with the regex below and create a 2 dimensional array
+    # Split each letter from the file if it includes _, X, G, or S
+    # And create a 2 dimensional array
     File.foreach(path + maze_file).map { |line| line.scan(/\_|X|G|S/) }
   end
 end

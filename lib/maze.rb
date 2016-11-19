@@ -12,11 +12,11 @@ class Maze
     @loaded_maze = loaded_maze
   end
 
-  def maze_array
+  def map
     loaded_maze.maze_array
   end
 
   private
-  # encapsulated the instance variables to be accessed by their methods
+  # Encapsulated the instance variables to be accessed by their methods
   attr_reader :loaded_maze
 end

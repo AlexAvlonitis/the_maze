@@ -1,18 +1,17 @@
-class PositionCoords
-  attr_reader :container
+class CorrectPath
+  attr_reader :show
 
   def initialize
-    @container = []
+    @show = []
   end
 
   def add(x, y)
     # add at the top of the stack
-    container.unshift([x, y])
+    show.unshift([x, y])
   end
 
   def remove
     # remove from the top of the stack
-    container.shift
+    show.shift
   end
-
 end

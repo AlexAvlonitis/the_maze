@@ -3,10 +3,9 @@
 # making sure that it did not already use those H and W values before.
 # If the H and W values are those of the end location,
 # it will save all the previous instances of the method as the correct path.
-require_relative 'position_coords'
+require_relative 'correct_path'
 
 class RecursiveAlgorithm
-  attr_reader :position
 
   def initialize(maze_array)
     @maze_array = maze_array
@@ -46,8 +45,8 @@ class RecursiveAlgorithm
     return false
   end
 
-  def position
-    @position ||= PositionCoords.new
+  def correct_path
+    @correct_path ||= CorrectPath.new
   end
 
   private
@@ -99,6 +98,6 @@ class RecursiveAlgorithm
   def mark_valid_path(h, w)
     maze_array[h][w] = '+'
     # add the valid positions in our stack and we can access anytime (save to db, cache...)
-    position.add(h, w)
+    correct_path.add(h, w)
   end
 end
