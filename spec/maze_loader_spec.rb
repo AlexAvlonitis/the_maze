@@ -5,17 +5,12 @@ describe MazeLoader do
   let(:wrong_maze_file) { 'dummy_test.txt' }
   let(:subject) { described_class.new(maze_file) }
   let(:wrong_file_subject) { described_class.new(wrong_maze_file) }
-  let(:wrong_path_subject) { described_class.new('/not_real_directory/', maze_file) }
-  let(:content) { ["_","_","_","_","G","_","_","X"] }
+  let(:wrong_path_subject) { described_class.new('non_existent_file') }
 
   context 'When the maze file is correct' do
     describe '#maze_array' do
       it 'returns true if the file is correct' do
-        expect(subject.maze_array).to be_truthy
-      end
-
-      it 'returns true if it includes part the file content' do
-        expect(subject.maze_array).to include content
+        expect(subject.maze_file).to be_truthy
       end
     end
   end
