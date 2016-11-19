@@ -15,6 +15,7 @@ class MazeSolver
       puts "solved"
       p algorithm.position.container
     else
+      # if the maze doesn't have a goal
       puts "unsolvable"
     end
   end

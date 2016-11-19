@@ -51,7 +51,7 @@ class RecursiveAlgorithm
   end
 
   private
-  attr_reader :type, :maze_array, :starting_point
+  attr_reader :maze_array, :starting_point
 
   def find_starting_point_coords
     find_coords("S")
@@ -79,8 +79,7 @@ class RecursiveAlgorithm
   end
 
   def maze_width
-    # [0] because it's a rectangular maze therefore all the rows are the same
-    # width, so are just checking one of them
+    # [0] because it's a rectangular maze therefore all the rows are the same width
     maze_array[0].size - 1
   end
 
