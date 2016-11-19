@@ -4,7 +4,7 @@ require_relative 'maze_solver'
 class Maze
 
   # Dependency injection *DI
-  def self.build(maze_file = 'maze1.maze')
+  def self.build(maze_file = 'harder.maze')
     new(MazeLoader.new(maze_file))
   end
 

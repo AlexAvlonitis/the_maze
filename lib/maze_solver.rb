@@ -27,14 +27,14 @@ class MazeSolver
   # Will represent the array as a board with w (width) & h (height)
   def solve_maze(h, w)
     # return false if we are on right path
-    return false if(w < 0 || h < 0 || h > maze_height || w > maze_width)
+    return false if check_maze_boundaries(h, w)
     # Check if i reached the goal return true
     if goal_reached?(h, w)
       puts "Goal at [#{h}][#{w}]"
       return true
     end
     # Check if i hit a wall 'X' or the starting point 'S'
-    return false if maze_array[h][w] == 'X' || maze_array[h][w] == '#'
+    return false if blocked_path?(h, w)
     # Leave a trail on the path so we won't revisit
     leave_trail(h, w)
 
@@ -95,7 +95,7 @@ class MazeSolver
 
   def blocked_path?(h, w)
     # if not wall 'X' or visited path '#'
-    !!(maze_array[h][w] != '_' || maze_array[h][w] != 'S')
+    !!(maze_array[h][w] == 'X' || maze_array[h][w] == '#')
   end
 
   def leave_trail(h, w)
