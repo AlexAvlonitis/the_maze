@@ -24,10 +24,16 @@ class MazeArrayChecker
   end
 
   def check_coinsiding_points
-    starting_point = HelperMethods.find_coords(maze_array, 'S')
-    ending_point = HelperMethods.find_coords(maze_array, 'G')
     error = 'Starting point should not coinside with the ending point'
     raise error if starting_point == ending_point
+  end
+
+  def starting_point
+    HelperMethods.find_coords(maze_array, 'S')
+  end
+
+  def ending_point
+    HelperMethods.find_coords(maze_array, 'G')
   end
 
   def get_dimensions(maze_array)
