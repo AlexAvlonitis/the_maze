@@ -2,7 +2,8 @@ require_relative 'maze_loader'
 require_relative 'maze'
 require_relative 'maze_solver'
 
-# You can include a maze Maze.build('mymaze.maze'), by placing it into the maze_files directory
+# You can include a maze file Maze.build('mymaze.maze'),
+# by placing it into the maze_files directory
 # Or leave blank for the default one generated in the class
 maze = Maze.build
 
