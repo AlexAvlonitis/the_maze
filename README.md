@@ -24,7 +24,7 @@ First navigate at the root of the program ./the_maze
 
 **MAZE FILE REQUIREMENTS**
 
-The maze file should have an extension of .maze
+The maze file should have an extension of .maze and shoud be placed under lib/maze_files
 
 The structure of the maze should be like that:
 
@@ -83,6 +83,7 @@ rspec spec/features/the_maze_feature_spec.rb
 
 ## Helpful links
 https://en.wikipedia.org/wiki/Maze_solving_algorithm
+
 https://www.cs.bu.edu/teaching/alg/maze/
 
 *DI: http://solnic.eu/2013/12/17/the-world-needs-another-post-about-dependency-injection-in-ruby.html
