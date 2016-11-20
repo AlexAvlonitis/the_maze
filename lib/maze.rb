@@ -14,7 +14,12 @@ class Maze
   end
 
   def map
-    convert_to_array
+    # return the maze array if checks passed
+    convert_to_array if maze_array_checker.check
+  end
+
+  def maze_array_checker
+    @maze_array_checker = MazeArrayChecker.new(convert_to_array)
   end
 
   private

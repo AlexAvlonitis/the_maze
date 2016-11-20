@@ -4,6 +4,7 @@
 # If the H and W values are those of the end location,
 # it will save all the previous instances of the method as the correct path.
 require_relative 'correct_path_container'
+require_relative 'helper_methods'
 
 class RecursiveAlgorithm
 
@@ -53,23 +54,11 @@ class RecursiveAlgorithm
   attr_reader :maze_array, :starting_point
 
   def find_starting_point_coords
-    find_coords("S")
-  end
-
-  def find_coords(element)
-    # finds the coordinates of an element inside a 2 dimentional array
-    # and retuns a an array ["0", "1"] pointing to where it is
-    a = maze_array.map.with_index do |subarray, i|
-          j = subarray.index(element)
-          "#{i} #{j}" if j
-        end
-    # Deletes nils, re-join as seperate elements and convert to integers
-    # to make it look like this [0][1]
-    a.compact.join.split(" ").map(&:to_i)
+    HelperMethods.find_coords(maze_array, "S")
   end
 
   def check_maze_boundaries(h, w)
-    # if it's not within the 2 dimentional boundaries of our maze array
+    # if it's not within the 2 dimensional boundaries of our maze array
     !!(w < 0 || h < 0 || h > maze_height || w > maze_width)
   end
 
