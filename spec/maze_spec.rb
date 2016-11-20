@@ -11,7 +11,7 @@ describe Maze do
                 ["_", "_", "_", "X", "_", "_", "_", "_"],
                 ["_", "_", "S", "_", "_", "X", "_", "_"]]
 
-  context 'Starting and loading the Maze' do
+  context 'When starting and loading the Maze' do
 
     describe '#map' do
       it "should return the converted maze map array" do
