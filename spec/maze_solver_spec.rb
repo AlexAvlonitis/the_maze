@@ -9,7 +9,10 @@ describe MazeSolver do
                     ["_", "X", "X", "X", "X", "X", "_", "_"],
                     ["X", "S", "_", "_", "_", "_", "_", "X"]]
 
-  recursive_algorithm = RecursiveAlgorithm.new(maze_array)
+  # Public interface
+  it { is_expected.to respond_to :solve }
+
+  let(:recursive_algorithm) { RecursiveAlgorithm.new(maze_array) }
   let(:subject) { described_class.new(recursive_algorithm) }
 
   context 'When the maze is solved' do

@@ -3,7 +3,7 @@
 # making sure that it did not already use those H and W values before.
 # If the H and W values are those of the end location,
 # it will save all the previous instances of the method as the correct path.
-require_relative 'correct_path'
+require_relative 'correct_path_container'
 
 class RecursiveAlgorithm
 
@@ -45,8 +45,8 @@ class RecursiveAlgorithm
     return false
   end
 
-  def correct_path
-    @correct_path ||= CorrectPath.new
+  def correct_path_container
+    @correct_path_container ||= CorrectPathContainer.new
   end
 
   private
@@ -98,6 +98,6 @@ class RecursiveAlgorithm
   def mark_valid_path(h, w)
     maze_array[h][w] = '+'
     # add the valid positions in our stack and we can access anytime (save to db, cache...)
-    correct_path.add(h, w)
+    correct_path_container.add(h, w)
   end
 end

@@ -7,6 +7,9 @@ describe MazeLoader do
   let(:wrong_file_subject) { described_class.new(wrong_maze_file) }
   let(:wrong_path_subject) { described_class.new('non_existent_file') }
 
+  # Public interface
+  it { is_expected.to respond_to :maze_file }
+
   context 'When the maze file is correct' do
     describe '#maze_array' do
       it 'returns true if the file is correct' do

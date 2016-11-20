@@ -1,4 +1,4 @@
-class CorrectPath
+class CorrectPathContainer
   attr_reader :show
 
   def initialize

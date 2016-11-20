@@ -14,7 +14,7 @@ class MazeSolver
     if algorithm.solve_maze
       puts "Solved!"
       puts "Path followed:"
-      p algorithm.correct_path.show
+      p algorithm.correct_path_container.show
     else
       # if the maze doesn't have a goal
       puts "Unsolvable..."
