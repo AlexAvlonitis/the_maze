@@ -13,7 +13,7 @@ describe 'Feature test 1: Generate a Maze and solve it' do
   end
 
   context 'When a Maze creation is correct and the maze Unsolvable' do
-    it "should return true" do
+    it "should return false" do
       maze = Maze.build('unsolvable.maze')
       maze_solver = MazeSolver.build(maze.map, 'recursive')
       expect(maze_solver.solve).to be_falsey
