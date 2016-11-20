@@ -1,3 +1,4 @@
+require_relative 'maze_array_checker'
 require_relative 'maze_constants'
 require_relative 'maze_loader'
 require_relative 'maze_solver'
@@ -11,22 +12,24 @@ class Maze
 
   def initialize(maze_loader)
     @maze_loader = maze_loader
+    # Check the integrity of the maze before continuing
+    maze_array_checker.check
   end
 
   def map
     # return the maze array if checks passed
-    convert_to_array if maze_array_checker.check
+    map_to_array
   end
 
   def maze_array_checker
-    @maze_array_checker = MazeArrayChecker.new(convert_to_array)
+    @maze_array_checker = MazeArrayChecker.new(map_to_array)
   end
 
   private
   # Encapsulated the instance variables to be accessed by their methods
   attr_reader :maze_loader
 
-  def convert_to_array
+  def map_to_array
     # Split each letter from the file if it's either: _ , X, G, or S
     # And create a 2 dimensional array
     File.foreach(MazeConstants::MAZE_FILES_DEFAULT_DIR + maze_loader.maze_file)
